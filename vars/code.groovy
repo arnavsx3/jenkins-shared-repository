@@ -1,7 +1,3 @@
-def call() {
-    echo "This is cloning the code"
-
-    git url: "https://github.com/arnavsx3/django-notes-app.git", branch: "main"
-
-    echo "Code cloning successful"
+def call(String repoUrl, String branch = 'main') {
+    git branch: branch, url: repoUrl
 }

@@ -1,5 +1,3 @@
-def call() {
-    echo "This is building the code"
-
-    sh "docker build -t notes-app:latest ."
+def call(String composeFile = 'docker-compose.yml') {
+    sh "docker compose -f ${composeFile} build"
 }
