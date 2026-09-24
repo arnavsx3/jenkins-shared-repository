@@ -5,8 +5,8 @@ def call(String sonarServer, String projectKey) {
         sh """
             ${scannerHome}/bin/sonar-scanner \
                 -Dsonar.projectKey=${projectKey} \
-                -Dsonar.sources=.
+                -Dsonar.sources=. \
+                -Dsonar.scanner.skipJreProvisioning=true
         """
     }
 }
-
