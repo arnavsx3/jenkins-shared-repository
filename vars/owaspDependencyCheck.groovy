@@ -1,7 +1,7 @@
 def call(String installation, String nvdCredentialId) {
 
     dependencyCheck(
-        additionalArguments: '--scan ./ --data /opt/dependency-check-data',
+        additionalArguments: '--scan ./',
         odcInstallation: installation,
         nvdCredentialsId: nvdCredentialId,
         stopBuild: true
