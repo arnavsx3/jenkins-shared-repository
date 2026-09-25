@@ -3,7 +3,8 @@ def call(String installation, String nvdCredentialId) {
     dependencyCheck(
         additionalArguments: '--scan ./',
         odcInstallation: installation,
-        nvdCredentialsId: nvdCredentialId
+        nvdCredentialsId: nvdCredentialId,
+        stopBuild: true
     )
 
     dependencyCheckPublisher(
