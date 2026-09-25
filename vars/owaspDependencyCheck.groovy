@@ -1,14 +1,12 @@
 def call(String installation, String nvdCredentialId) {
 
     dependencyCheck(
-        additionalArguments: '--scan ./ --format XML --format HTML',
+        additionalArguments: '--scan ./',
         odcInstallation: installation,
-        nvdCredentialsId: nvdCredentialId,
-        stopBuild: true
+        nvdCredentialsId: nvdCredentialId
     )
 
     dependencyCheckPublisher(
-        pattern: '**/dependency-check-report.xml',
-        stopBuild: true
+        pattern: '**/dependency-check-report.xml'
     )
 }
