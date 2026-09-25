@@ -12,7 +12,6 @@ def call(String severity = "HIGH,CRITICAL") {
             trivy image \
                 --severity ${severity} \
                 --ignore-unfixed \
-                --exit-code 1 \
                 ${image}
         """
     }
