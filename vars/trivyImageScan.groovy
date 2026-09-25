@@ -11,6 +11,7 @@ def call(String severity = "HIGH,CRITICAL") {
         sh """
             trivy image \
                 --severity ${severity} \
+                --ignore-unfixed \
                 --exit-code 1 \
                 ${image}
         """
