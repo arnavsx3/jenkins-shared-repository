@@ -1,15 +1,14 @@
 def call(String installation, String nvdCredentialId) {
 
-    withCredentials([
-        string(credentialsId: nvdCredentialId, variable: 'NVD_API_KEY')
-    ]) {
-        dependencyCheck(
-            additionalArguments: "--scan ./ --nvdApiKey \$NVD_API_KEY",
-            odcInstallation: installation
-        )
-    }
+    dependencyCheck(
+        additionalArguments: '--scan ./ --format XML --format HTML',
+        odcInstallation: installation,
+        nvdCredentialsId: nvdCredentialId,
+        stopBuild: true
+    )
 
     dependencyCheckPublisher(
-        pattern: '**/dependency-check-report.xml'
+        pattern: '**/dependency-check-report.xml',
+        stopBuild: true
     )
 }
